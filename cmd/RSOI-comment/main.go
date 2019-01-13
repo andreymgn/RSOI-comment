@@ -14,7 +14,6 @@ func main() {
 		return
 	}
 
-	jaegerAddr := os.Getenv("JAEGER-ADDR")
 	redisAddr := os.Getenv("REDIS-ADDR")
 	redisPass := os.Getenv("REDIS-PASS")
 	redisDB, err := strconv.Atoi(os.Getenv("REDIS-DB"))
@@ -24,7 +23,7 @@ func main() {
 	}
 
 	fmt.Printf("running post service on port %d\n", port)
-	err = runComment(port, conn, jaegerAddr, redisAddr, redisPass, redisDB)
+	err = runComment(port, conn, redisAddr, redisPass, redisDB)
 
 	if err != nil {
 		fmt.Printf("finished with error %v", err)
