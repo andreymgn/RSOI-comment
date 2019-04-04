@@ -2,7 +2,6 @@ package comment
 
 import (
 	pb "github.com/andreymgn/RSOI-comment/pkg/comment/proto"
-	"github.com/andreymgn/RSOI/services/auth"
 	"github.com/golang/protobuf/ptypes"
 	"github.com/google/uuid"
 	"golang.org/x/net/context"
@@ -91,15 +90,6 @@ func (s *Server) ListComments(ctx context.Context, req *pb.ListCommentsRequest) 
 
 // CreateComment creates a new comment
 func (s *Server) CreateComment(ctx context.Context, req *pb.CreateCommentRequest) (*pb.SingleComment, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	postUID, err := uuid.Parse(req.PostUid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -128,15 +118,6 @@ func (s *Server) CreateComment(ctx context.Context, req *pb.CreateCommentRequest
 
 // UpdateComment updates comment by ID
 func (s *Server) UpdateComment(ctx context.Context, req *pb.UpdateCommentRequest) (*pb.UpdateCommentResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.Uid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -154,15 +135,6 @@ func (s *Server) UpdateComment(ctx context.Context, req *pb.UpdateCommentRequest
 }
 
 func (s *Server) RemoveContent(ctx context.Context, req *pb.RemoveContentRequest) (*pb.RemoveContentResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.Uid)
 	if err != nil {
 		return nil, statusInvalidUUID
@@ -181,15 +153,6 @@ func (s *Server) RemoveContent(ctx context.Context, req *pb.RemoveContentRequest
 
 // DeleteComment deletes post by ID
 func (s *Server) DeleteComment(ctx context.Context, req *pb.DeleteCommentRequest) (*pb.DeleteCommentResponse, error) {
-	valid, err := s.checkToken(req.Token)
-	if err != nil {
-		return nil, err
-	}
-
-	if !valid {
-		return nil, statusInvalidToken
-	}
-
 	uid, err := uuid.Parse(req.Uid)
 	if err != nil {
 		return nil, err
@@ -201,24 +164,6 @@ func (s *Server) DeleteComment(ctx context.Context, req *pb.DeleteCommentRequest
 		return new(pb.DeleteCommentResponse), nil
 	case errNotFound:
 		return nil, statusNotFound
-	default:
-		return nil, internalError(err)
-	}
-}
-
-// GetToken returns new authorization token
-func (s *Server) GetToken(ctx context.Context, req *pb.GetTokenRequest) (*pb.GetTokenResponse, error) {
-	appID, appSecret := req.AppId, req.AppSecret
-	token, err := s.auth.Add(appID, appSecret)
-	switch err {
-	case nil:
-		res := new(pb.GetTokenResponse)
-		res.Token = token
-		return res, nil
-	case auth.ErrNotFound:
-		return nil, statusNotFound
-	case auth.ErrWrongSecret:
-		return nil, status.Error(codes.Unauthenticated, "wrong secret")
 	default:
 		return nil, internalError(err)
 	}

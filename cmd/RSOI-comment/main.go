@@ -14,16 +14,8 @@ func main() {
 		return
 	}
 
-	redisAddr := os.Getenv("REDIS-ADDR")
-	redisPass := os.Getenv("REDIS-PASS")
-	redisDB, err := strconv.Atoi(os.Getenv("REDIS-DB"))
-	if err != nil {
-		fmt.Println("REDIS-DB parse error")
-		return
-	}
-
-	fmt.Printf("running post service on port %d\n", port)
-	err = runComment(port, conn, redisAddr, redisPass, redisDB)
+	fmt.Printf("running comment service on port %d\n", port)
+	err = runComment(port, conn)
 
 	if err != nil {
 		fmt.Printf("finished with error %v", err)

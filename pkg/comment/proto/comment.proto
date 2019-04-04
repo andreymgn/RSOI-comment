@@ -10,7 +10,6 @@ service Comment {
     rpc UpdateComment(UpdateCommentRequest) returns (UpdateCommentResponse);
     rpc RemoveContent(RemoveContentRequest) returns (RemoveContentResponse);
     rpc DeleteComment(DeleteCommentRequest) returns (DeleteCommentResponse);
-    rpc GetToken(GetTokenRequest) returns (GetTokenResponse);
     rpc GetOwner(GetOwnerRequest) returns (GetOwnerResponse); 
 }
 
@@ -39,17 +38,15 @@ message SingleComment {
 }
 
 message CreateCommentRequest {
-    string token = 1;
-    string postUid = 2;
-    string body = 3;
-    string parentUid = 4;
-    string userUid = 5;
+    string postUid = 1;
+    string body = 2;
+    string parentUid = 3;
+    string userUid = 4;
 }
 
 message UpdateCommentRequest {
-    string token = 1;
-    string uid = 2;
-    string body = 3;
+    string uid = 1;
+    string body = 2;
 }
 
 message UpdateCommentResponse {
@@ -57,8 +54,7 @@ message UpdateCommentResponse {
 }
 
 message RemoveContentRequest {
-    string token = 1;
-    string uid = 2;
+    string uid = 1;
 }
 
 message RemoveContentResponse {
@@ -66,21 +62,11 @@ message RemoveContentResponse {
 }
 
 message DeleteCommentRequest {
-    string token = 1;
-    string uid = 2;
+    string uid = 1;
 }
 
 message DeleteCommentResponse {
 
-}
-
-message GetTokenRequest {
-    string appId = 1;
-    string appSecret = 2;
-}
-
-message GetTokenResponse {
-    string token = 1;
 }
 
 message GetOwnerRequest {

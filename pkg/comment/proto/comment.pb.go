@@ -3,12 +3,10 @@
 
 package comment
 
-import (
-	fmt "fmt"
-	proto "github.com/golang/protobuf/proto"
-	timestamp "github.com/golang/protobuf/ptypes/timestamp"
-	math "math"
-)
+import proto "github.com/golang/protobuf/proto"
+import fmt "fmt"
+import math "math"
+import timestamp "github.com/golang/protobuf/ptypes/timestamp"
 
 import (
 	context "golang.org/x/net/context"
@@ -40,17 +38,16 @@ func (m *ListCommentsRequest) Reset()         { *m = ListCommentsRequest{} }
 func (m *ListCommentsRequest) String() string { return proto.CompactTextString(m) }
 func (*ListCommentsRequest) ProtoMessage()    {}
 func (*ListCommentsRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{0}
+	return fileDescriptor_comment_5c868753f2e26760, []int{0}
 }
-
 func (m *ListCommentsRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListCommentsRequest.Unmarshal(m, b)
 }
 func (m *ListCommentsRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ListCommentsRequest.Marshal(b, m, deterministic)
 }
-func (m *ListCommentsRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListCommentsRequest.Merge(m, src)
+func (dst *ListCommentsRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListCommentsRequest.Merge(dst, src)
 }
 func (m *ListCommentsRequest) XXX_Size() int {
 	return xxx_messageInfo_ListCommentsRequest.Size(m)
@@ -102,17 +99,16 @@ func (m *ListCommentsResponse) Reset()         { *m = ListCommentsResponse{} }
 func (m *ListCommentsResponse) String() string { return proto.CompactTextString(m) }
 func (*ListCommentsResponse) ProtoMessage()    {}
 func (*ListCommentsResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{1}
+	return fileDescriptor_comment_5c868753f2e26760, []int{1}
 }
-
 func (m *ListCommentsResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_ListCommentsResponse.Unmarshal(m, b)
 }
 func (m *ListCommentsResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_ListCommentsResponse.Marshal(b, m, deterministic)
 }
-func (m *ListCommentsResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_ListCommentsResponse.Merge(m, src)
+func (dst *ListCommentsResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_ListCommentsResponse.Merge(dst, src)
 }
 func (m *ListCommentsResponse) XXX_Size() int {
 	return xxx_messageInfo_ListCommentsResponse.Size(m)
@@ -162,17 +158,16 @@ func (m *SingleComment) Reset()         { *m = SingleComment{} }
 func (m *SingleComment) String() string { return proto.CompactTextString(m) }
 func (*SingleComment) ProtoMessage()    {}
 func (*SingleComment) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{2}
+	return fileDescriptor_comment_5c868753f2e26760, []int{2}
 }
-
 func (m *SingleComment) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_SingleComment.Unmarshal(m, b)
 }
 func (m *SingleComment) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_SingleComment.Marshal(b, m, deterministic)
 }
-func (m *SingleComment) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_SingleComment.Merge(m, src)
+func (dst *SingleComment) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SingleComment.Merge(dst, src)
 }
 func (m *SingleComment) XXX_Size() int {
 	return xxx_messageInfo_SingleComment.Size(m)
@@ -240,11 +235,10 @@ func (m *SingleComment) GetIsDeleted() bool {
 }
 
 type CreateCommentRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	PostUid              string   `protobuf:"bytes,2,opt,name=postUid,proto3" json:"postUid,omitempty"`
-	Body                 string   `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
-	ParentUid            string   `protobuf:"bytes,4,opt,name=parentUid,proto3" json:"parentUid,omitempty"`
-	UserUid              string   `protobuf:"bytes,5,opt,name=userUid,proto3" json:"userUid,omitempty"`
+	PostUid              string   `protobuf:"bytes,1,opt,name=postUid,proto3" json:"postUid,omitempty"`
+	Body                 string   `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
+	ParentUid            string   `protobuf:"bytes,3,opt,name=parentUid,proto3" json:"parentUid,omitempty"`
+	UserUid              string   `protobuf:"bytes,4,opt,name=userUid,proto3" json:"userUid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -254,17 +248,16 @@ func (m *CreateCommentRequest) Reset()         { *m = CreateCommentRequest{} }
 func (m *CreateCommentRequest) String() string { return proto.CompactTextString(m) }
 func (*CreateCommentRequest) ProtoMessage()    {}
 func (*CreateCommentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{3}
+	return fileDescriptor_comment_5c868753f2e26760, []int{3}
 }
-
 func (m *CreateCommentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_CreateCommentRequest.Unmarshal(m, b)
 }
 func (m *CreateCommentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_CreateCommentRequest.Marshal(b, m, deterministic)
 }
-func (m *CreateCommentRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_CreateCommentRequest.Merge(m, src)
+func (dst *CreateCommentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_CreateCommentRequest.Merge(dst, src)
 }
 func (m *CreateCommentRequest) XXX_Size() int {
 	return xxx_messageInfo_CreateCommentRequest.Size(m)
@@ -274,13 +267,6 @@ func (m *CreateCommentRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_CreateCommentRequest proto.InternalMessageInfo
-
-func (m *CreateCommentRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *CreateCommentRequest) GetPostUid() string {
 	if m != nil {
@@ -311,9 +297,8 @@ func (m *CreateCommentRequest) GetUserUid() string {
 }
 
 type UpdateCommentRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	Uid                  string   `protobuf:"bytes,2,opt,name=uid,proto3" json:"uid,omitempty"`
-	Body                 string   `protobuf:"bytes,3,opt,name=body,proto3" json:"body,omitempty"`
+	Uid                  string   `protobuf:"bytes,1,opt,name=uid,proto3" json:"uid,omitempty"`
+	Body                 string   `protobuf:"bytes,2,opt,name=body,proto3" json:"body,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -323,17 +308,16 @@ func (m *UpdateCommentRequest) Reset()         { *m = UpdateCommentRequest{} }
 func (m *UpdateCommentRequest) String() string { return proto.CompactTextString(m) }
 func (*UpdateCommentRequest) ProtoMessage()    {}
 func (*UpdateCommentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{4}
+	return fileDescriptor_comment_5c868753f2e26760, []int{4}
 }
-
 func (m *UpdateCommentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UpdateCommentRequest.Unmarshal(m, b)
 }
 func (m *UpdateCommentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_UpdateCommentRequest.Marshal(b, m, deterministic)
 }
-func (m *UpdateCommentRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateCommentRequest.Merge(m, src)
+func (dst *UpdateCommentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateCommentRequest.Merge(dst, src)
 }
 func (m *UpdateCommentRequest) XXX_Size() int {
 	return xxx_messageInfo_UpdateCommentRequest.Size(m)
@@ -343,13 +327,6 @@ func (m *UpdateCommentRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_UpdateCommentRequest proto.InternalMessageInfo
-
-func (m *UpdateCommentRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *UpdateCommentRequest) GetUid() string {
 	if m != nil {
@@ -375,17 +352,16 @@ func (m *UpdateCommentResponse) Reset()         { *m = UpdateCommentResponse{} }
 func (m *UpdateCommentResponse) String() string { return proto.CompactTextString(m) }
 func (*UpdateCommentResponse) ProtoMessage()    {}
 func (*UpdateCommentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{5}
+	return fileDescriptor_comment_5c868753f2e26760, []int{5}
 }
-
 func (m *UpdateCommentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_UpdateCommentResponse.Unmarshal(m, b)
 }
 func (m *UpdateCommentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_UpdateCommentResponse.Marshal(b, m, deterministic)
 }
-func (m *UpdateCommentResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_UpdateCommentResponse.Merge(m, src)
+func (dst *UpdateCommentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_UpdateCommentResponse.Merge(dst, src)
 }
 func (m *UpdateCommentResponse) XXX_Size() int {
 	return xxx_messageInfo_UpdateCommentResponse.Size(m)
@@ -397,8 +373,7 @@ func (m *UpdateCommentResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_UpdateCommentResponse proto.InternalMessageInfo
 
 type RemoveContentRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	Uid                  string   `protobuf:"bytes,2,opt,name=uid,proto3" json:"uid,omitempty"`
+	Uid                  string   `protobuf:"bytes,1,opt,name=uid,proto3" json:"uid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -408,17 +383,16 @@ func (m *RemoveContentRequest) Reset()         { *m = RemoveContentRequest{} }
 func (m *RemoveContentRequest) String() string { return proto.CompactTextString(m) }
 func (*RemoveContentRequest) ProtoMessage()    {}
 func (*RemoveContentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{6}
+	return fileDescriptor_comment_5c868753f2e26760, []int{6}
 }
-
 func (m *RemoveContentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RemoveContentRequest.Unmarshal(m, b)
 }
 func (m *RemoveContentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_RemoveContentRequest.Marshal(b, m, deterministic)
 }
-func (m *RemoveContentRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveContentRequest.Merge(m, src)
+func (dst *RemoveContentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveContentRequest.Merge(dst, src)
 }
 func (m *RemoveContentRequest) XXX_Size() int {
 	return xxx_messageInfo_RemoveContentRequest.Size(m)
@@ -428,13 +402,6 @@ func (m *RemoveContentRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_RemoveContentRequest proto.InternalMessageInfo
-
-func (m *RemoveContentRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *RemoveContentRequest) GetUid() string {
 	if m != nil {
@@ -453,17 +420,16 @@ func (m *RemoveContentResponse) Reset()         { *m = RemoveContentResponse{} }
 func (m *RemoveContentResponse) String() string { return proto.CompactTextString(m) }
 func (*RemoveContentResponse) ProtoMessage()    {}
 func (*RemoveContentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{7}
+	return fileDescriptor_comment_5c868753f2e26760, []int{7}
 }
-
 func (m *RemoveContentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_RemoveContentResponse.Unmarshal(m, b)
 }
 func (m *RemoveContentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_RemoveContentResponse.Marshal(b, m, deterministic)
 }
-func (m *RemoveContentResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_RemoveContentResponse.Merge(m, src)
+func (dst *RemoveContentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_RemoveContentResponse.Merge(dst, src)
 }
 func (m *RemoveContentResponse) XXX_Size() int {
 	return xxx_messageInfo_RemoveContentResponse.Size(m)
@@ -475,8 +441,7 @@ func (m *RemoveContentResponse) XXX_DiscardUnknown() {
 var xxx_messageInfo_RemoveContentResponse proto.InternalMessageInfo
 
 type DeleteCommentRequest struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	Uid                  string   `protobuf:"bytes,2,opt,name=uid,proto3" json:"uid,omitempty"`
+	Uid                  string   `protobuf:"bytes,1,opt,name=uid,proto3" json:"uid,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -486,17 +451,16 @@ func (m *DeleteCommentRequest) Reset()         { *m = DeleteCommentRequest{} }
 func (m *DeleteCommentRequest) String() string { return proto.CompactTextString(m) }
 func (*DeleteCommentRequest) ProtoMessage()    {}
 func (*DeleteCommentRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{8}
+	return fileDescriptor_comment_5c868753f2e26760, []int{8}
 }
-
 func (m *DeleteCommentRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteCommentRequest.Unmarshal(m, b)
 }
 func (m *DeleteCommentRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DeleteCommentRequest.Marshal(b, m, deterministic)
 }
-func (m *DeleteCommentRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteCommentRequest.Merge(m, src)
+func (dst *DeleteCommentRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCommentRequest.Merge(dst, src)
 }
 func (m *DeleteCommentRequest) XXX_Size() int {
 	return xxx_messageInfo_DeleteCommentRequest.Size(m)
@@ -506,13 +470,6 @@ func (m *DeleteCommentRequest) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_DeleteCommentRequest proto.InternalMessageInfo
-
-func (m *DeleteCommentRequest) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 func (m *DeleteCommentRequest) GetUid() string {
 	if m != nil {
@@ -531,17 +488,16 @@ func (m *DeleteCommentResponse) Reset()         { *m = DeleteCommentResponse{} }
 func (m *DeleteCommentResponse) String() string { return proto.CompactTextString(m) }
 func (*DeleteCommentResponse) ProtoMessage()    {}
 func (*DeleteCommentResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{9}
+	return fileDescriptor_comment_5c868753f2e26760, []int{9}
 }
-
 func (m *DeleteCommentResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_DeleteCommentResponse.Unmarshal(m, b)
 }
 func (m *DeleteCommentResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_DeleteCommentResponse.Marshal(b, m, deterministic)
 }
-func (m *DeleteCommentResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_DeleteCommentResponse.Merge(m, src)
+func (dst *DeleteCommentResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_DeleteCommentResponse.Merge(dst, src)
 }
 func (m *DeleteCommentResponse) XXX_Size() int {
 	return xxx_messageInfo_DeleteCommentResponse.Size(m)
@@ -551,92 +507,6 @@ func (m *DeleteCommentResponse) XXX_DiscardUnknown() {
 }
 
 var xxx_messageInfo_DeleteCommentResponse proto.InternalMessageInfo
-
-type GetTokenRequest struct {
-	AppId                string   `protobuf:"bytes,1,opt,name=appId,proto3" json:"appId,omitempty"`
-	AppSecret            string   `protobuf:"bytes,2,opt,name=appSecret,proto3" json:"appSecret,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTokenRequest) Reset()         { *m = GetTokenRequest{} }
-func (m *GetTokenRequest) String() string { return proto.CompactTextString(m) }
-func (*GetTokenRequest) ProtoMessage()    {}
-func (*GetTokenRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{10}
-}
-
-func (m *GetTokenRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTokenRequest.Unmarshal(m, b)
-}
-func (m *GetTokenRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTokenRequest.Marshal(b, m, deterministic)
-}
-func (m *GetTokenRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTokenRequest.Merge(m, src)
-}
-func (m *GetTokenRequest) XXX_Size() int {
-	return xxx_messageInfo_GetTokenRequest.Size(m)
-}
-func (m *GetTokenRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTokenRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTokenRequest proto.InternalMessageInfo
-
-func (m *GetTokenRequest) GetAppId() string {
-	if m != nil {
-		return m.AppId
-	}
-	return ""
-}
-
-func (m *GetTokenRequest) GetAppSecret() string {
-	if m != nil {
-		return m.AppSecret
-	}
-	return ""
-}
-
-type GetTokenResponse struct {
-	Token                string   `protobuf:"bytes,1,opt,name=token,proto3" json:"token,omitempty"`
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *GetTokenResponse) Reset()         { *m = GetTokenResponse{} }
-func (m *GetTokenResponse) String() string { return proto.CompactTextString(m) }
-func (*GetTokenResponse) ProtoMessage()    {}
-func (*GetTokenResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{11}
-}
-
-func (m *GetTokenResponse) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_GetTokenResponse.Unmarshal(m, b)
-}
-func (m *GetTokenResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_GetTokenResponse.Marshal(b, m, deterministic)
-}
-func (m *GetTokenResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetTokenResponse.Merge(m, src)
-}
-func (m *GetTokenResponse) XXX_Size() int {
-	return xxx_messageInfo_GetTokenResponse.Size(m)
-}
-func (m *GetTokenResponse) XXX_DiscardUnknown() {
-	xxx_messageInfo_GetTokenResponse.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_GetTokenResponse proto.InternalMessageInfo
-
-func (m *GetTokenResponse) GetToken() string {
-	if m != nil {
-		return m.Token
-	}
-	return ""
-}
 
 type GetOwnerRequest struct {
 	Uid                  string   `protobuf:"bytes,1,opt,name=uid,proto3" json:"uid,omitempty"`
@@ -649,17 +519,16 @@ func (m *GetOwnerRequest) Reset()         { *m = GetOwnerRequest{} }
 func (m *GetOwnerRequest) String() string { return proto.CompactTextString(m) }
 func (*GetOwnerRequest) ProtoMessage()    {}
 func (*GetOwnerRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{12}
+	return fileDescriptor_comment_5c868753f2e26760, []int{10}
 }
-
 func (m *GetOwnerRequest) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetOwnerRequest.Unmarshal(m, b)
 }
 func (m *GetOwnerRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_GetOwnerRequest.Marshal(b, m, deterministic)
 }
-func (m *GetOwnerRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetOwnerRequest.Merge(m, src)
+func (dst *GetOwnerRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetOwnerRequest.Merge(dst, src)
 }
 func (m *GetOwnerRequest) XXX_Size() int {
 	return xxx_messageInfo_GetOwnerRequest.Size(m)
@@ -688,17 +557,16 @@ func (m *GetOwnerResponse) Reset()         { *m = GetOwnerResponse{} }
 func (m *GetOwnerResponse) String() string { return proto.CompactTextString(m) }
 func (*GetOwnerResponse) ProtoMessage()    {}
 func (*GetOwnerResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_54de1e1e304ff443, []int{13}
+	return fileDescriptor_comment_5c868753f2e26760, []int{11}
 }
-
 func (m *GetOwnerResponse) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_GetOwnerResponse.Unmarshal(m, b)
 }
 func (m *GetOwnerResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_GetOwnerResponse.Marshal(b, m, deterministic)
 }
-func (m *GetOwnerResponse) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_GetOwnerResponse.Merge(m, src)
+func (dst *GetOwnerResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetOwnerResponse.Merge(dst, src)
 }
 func (m *GetOwnerResponse) XXX_Size() int {
 	return xxx_messageInfo_GetOwnerResponse.Size(m)
@@ -727,8 +595,6 @@ func init() {
 	proto.RegisterType((*RemoveContentResponse)(nil), "comment.RemoveContentResponse")
 	proto.RegisterType((*DeleteCommentRequest)(nil), "comment.DeleteCommentRequest")
 	proto.RegisterType((*DeleteCommentResponse)(nil), "comment.DeleteCommentResponse")
-	proto.RegisterType((*GetTokenRequest)(nil), "comment.GetTokenRequest")
-	proto.RegisterType((*GetTokenResponse)(nil), "comment.GetTokenResponse")
 	proto.RegisterType((*GetOwnerRequest)(nil), "comment.GetOwnerRequest")
 	proto.RegisterType((*GetOwnerResponse)(nil), "comment.GetOwnerResponse")
 }
@@ -750,7 +616,6 @@ type CommentClient interface {
 	UpdateComment(ctx context.Context, in *UpdateCommentRequest, opts ...grpc.CallOption) (*UpdateCommentResponse, error)
 	RemoveContent(ctx context.Context, in *RemoveContentRequest, opts ...grpc.CallOption) (*RemoveContentResponse, error)
 	DeleteComment(ctx context.Context, in *DeleteCommentRequest, opts ...grpc.CallOption) (*DeleteCommentResponse, error)
-	GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error)
 	GetOwner(ctx context.Context, in *GetOwnerRequest, opts ...grpc.CallOption) (*GetOwnerResponse, error)
 }
 
@@ -807,15 +672,6 @@ func (c *commentClient) DeleteComment(ctx context.Context, in *DeleteCommentRequ
 	return out, nil
 }
 
-func (c *commentClient) GetToken(ctx context.Context, in *GetTokenRequest, opts ...grpc.CallOption) (*GetTokenResponse, error) {
-	out := new(GetTokenResponse)
-	err := c.cc.Invoke(ctx, "/comment.Comment/GetToken", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *commentClient) GetOwner(ctx context.Context, in *GetOwnerRequest, opts ...grpc.CallOption) (*GetOwnerResponse, error) {
 	out := new(GetOwnerResponse)
 	err := c.cc.Invoke(ctx, "/comment.Comment/GetOwner", in, out, opts...)
@@ -832,7 +688,6 @@ type CommentServer interface {
 	UpdateComment(context.Context, *UpdateCommentRequest) (*UpdateCommentResponse, error)
 	RemoveContent(context.Context, *RemoveContentRequest) (*RemoveContentResponse, error)
 	DeleteComment(context.Context, *DeleteCommentRequest) (*DeleteCommentResponse, error)
-	GetToken(context.Context, *GetTokenRequest) (*GetTokenResponse, error)
 	GetOwner(context.Context, *GetOwnerRequest) (*GetOwnerResponse, error)
 }
 
@@ -930,24 +785,6 @@ func _Comment_DeleteComment_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
-func _Comment_GetToken_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetTokenRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(CommentServer).GetToken(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/comment.Comment/GetToken",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(CommentServer).GetToken(ctx, req.(*GetTokenRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _Comment_GetOwner_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetOwnerRequest)
 	if err := dec(in); err != nil {
@@ -991,10 +828,6 @@ var _Comment_serviceDesc = grpc.ServiceDesc{
 			Handler:    _Comment_DeleteComment_Handler,
 		},
 		{
-			MethodName: "GetToken",
-			Handler:    _Comment_GetToken_Handler,
-		},
-		{
 			MethodName: "GetOwner",
 			Handler:    _Comment_GetOwner_Handler,
 		},
@@ -1003,47 +836,44 @@ var _Comment_serviceDesc = grpc.ServiceDesc{
 	Metadata: "pkg/comment/proto/comment.proto",
 }
 
-func init() { proto.RegisterFile("pkg/comment/proto/comment.proto", fileDescriptor_54de1e1e304ff443) }
+func init() {
+	proto.RegisterFile("pkg/comment/proto/comment.proto", fileDescriptor_comment_5c868753f2e26760)
+}
 
-var fileDescriptor_54de1e1e304ff443 = []byte{
-	// 609 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x9c, 0x54, 0x4d, 0x6f, 0xd3, 0x4c,
-	0x10, 0x96, 0xe3, 0xa4, 0x71, 0xa6, 0x6f, 0xf4, 0x56, 0x4b, 0x00, 0x63, 0x95, 0x36, 0x32, 0x17,
-	0x9f, 0x5c, 0x29, 0x5c, 0x10, 0x07, 0x10, 0x2a, 0x1f, 0x42, 0xa0, 0x20, 0x39, 0xed, 0x0f, 0x70,
-	0xe2, 0x69, 0x64, 0x35, 0xf6, 0x2e, 0xf6, 0x06, 0x04, 0x3f, 0x80, 0x0b, 0x17, 0xc4, 0x95, 0x3f,
-	0x8b, 0x76, 0xbd, 0xb6, 0x77, 0x53, 0x87, 0xaf, 0xdb, 0xce, 0xd7, 0x33, 0xb3, 0xcf, 0x3e, 0x3b,
-	0x70, 0xca, 0xae, 0xd7, 0x67, 0x2b, 0x9a, 0x65, 0x98, 0xf3, 0x33, 0x56, 0x50, 0x4e, 0x6b, 0x2b,
-	0x94, 0x16, 0x19, 0x2a, 0xd3, 0x3b, 0x5d, 0x53, 0xba, 0xde, 0x60, 0x95, 0xb4, 0xdc, 0x5e, 0x9d,
-	0xf1, 0x34, 0xc3, 0x92, 0xc7, 0x19, 0xab, 0x32, 0xfd, 0xaf, 0x16, 0xdc, 0x7a, 0x9b, 0x96, 0xfc,
-	0xbc, 0x2a, 0x28, 0x23, 0x7c, 0xbf, 0xc5, 0x92, 0x13, 0x17, 0x86, 0x8c, 0x96, 0xfc, 0x32, 0x4d,
-	0x5c, 0x6b, 0x6a, 0x05, 0xa3, 0xa8, 0x36, 0xc9, 0x09, 0x80, 0x42, 0x17, 0xc1, 0x9e, 0x0c, 0x6a,
-	0x1e, 0xe2, 0x81, 0xc3, 0xe2, 0x35, 0x2e, 0xd2, 0xcf, 0xe8, 0xda, 0x53, 0x2b, 0x18, 0x44, 0x8d,
-	0x2d, 0x6a, 0xc5, 0x79, 0xbe, 0xcd, 0x96, 0x58, 0xb8, 0x7d, 0x19, 0xd5, 0x3c, 0xfe, 0x17, 0x0b,
-	0x26, 0xe6, 0x34, 0x25, 0xa3, 0x79, 0x89, 0x64, 0x06, 0x8e, 0x6a, 0x51, 0xba, 0xd6, 0xd4, 0x0e,
-	0x0e, 0x67, 0x77, 0xc2, 0xfa, 0xca, 0x8b, 0x34, 0x5f, 0x6f, 0x50, 0x95, 0x44, 0x4d, 0x9e, 0x31,
-	0x48, 0xef, 0x97, 0x83, 0xd8, 0x37, 0x06, 0xf9, 0xd1, 0x83, 0xb1, 0x81, 0x4b, 0x8e, 0xc0, 0xde,
-	0x36, 0x64, 0x88, 0xa3, 0xa0, 0x68, 0x5b, 0x62, 0xd1, 0xb2, 0x50, 0x9b, 0x3a, 0x79, 0xb6, 0x49,
-	0x1e, 0x81, 0xfe, 0x92, 0x26, 0x9f, 0xe4, 0xd5, 0x47, 0x91, 0x3c, 0x93, 0x63, 0x18, 0xb1, 0xb8,
-	0x50, 0x7c, 0x0e, 0x64, 0xa0, 0x75, 0x90, 0x47, 0x30, 0x5a, 0x15, 0x18, 0x73, 0x4c, 0x9e, 0x71,
-	0xf7, 0x60, 0x6a, 0x05, 0x87, 0x33, 0x2f, 0xac, 0x5e, 0x35, 0xac, 0x5f, 0x35, 0xbc, 0xa8, 0x5f,
-	0x35, 0x6a, 0x93, 0xc9, 0x63, 0x80, 0x8c, 0x26, 0xe9, 0x55, 0x2a, 0x4b, 0x87, 0xbf, 0x2d, 0xd5,
-	0xb2, 0xc5, 0x4c, 0x69, 0xf9, 0x1c, 0x37, 0xc8, 0x31, 0x71, 0x9d, 0xa9, 0x15, 0x38, 0x51, 0xeb,
-	0xf0, 0xbf, 0x5b, 0x30, 0x39, 0x97, 0x7d, 0x6a, 0xd6, 0x95, 0x6a, 0x26, 0x30, 0xe0, 0xf4, 0x1a,
-	0x73, 0x45, 0x53, 0x65, 0xe8, 0x74, 0xf4, 0xba, 0xe9, 0xb0, 0xf7, 0xd1, 0xd1, 0xdf, 0xa5, 0x43,
-	0x23, 0x7d, 0x60, 0x90, 0xee, 0x47, 0x30, 0xb9, 0x64, 0xc9, 0x9f, 0xce, 0xa4, 0x9e, 0xb3, 0xd7,
-	0x3e, 0x67, 0xc7, 0x2c, 0xfe, 0x5d, 0xb8, 0xbd, 0x83, 0x59, 0xe9, 0xd1, 0x7f, 0x02, 0x93, 0x08,
-	0x33, 0xfa, 0x01, 0xcf, 0x69, 0xce, 0xff, 0xbe, 0x99, 0x00, 0xde, 0xa9, 0x6f, 0x81, 0x2b, 0x96,
-	0xff, 0xed, 0x16, 0x02, 0x78, 0xa7, 0x5e, 0x01, 0xbf, 0x80, 0xff, 0x5f, 0x21, 0xbf, 0x10, 0x65,
-	0x1a, 0x66, 0xcc, 0xd8, 0xeb, 0x5a, 0xd4, 0x95, 0x21, 0xf8, 0x8f, 0x19, 0x5b, 0xe0, 0xaa, 0x40,
-	0xae, 0x90, 0x5b, 0x87, 0x1f, 0xc0, 0x51, 0x0b, 0xa3, 0x3e, 0x67, 0xe7, 0x6c, 0xfe, 0x03, 0xd9,
-	0xf0, 0xdd, 0xc7, 0x1c, 0x8b, 0xba, 0xe1, 0x8d, 0x3f, 0xe4, 0x87, 0x12, 0x4e, 0x25, 0x29, 0x38,
-	0x0f, 0x1c, 0x2a, 0x1c, 0xed, 0xee, 0x69, 0xec, 0xd9, 0xb7, 0x3e, 0x0c, 0xeb, 0x1f, 0xf9, 0x06,
-	0xfe, 0xd3, 0x77, 0x05, 0x39, 0x6e, 0x36, 0x42, 0xc7, 0x42, 0xf3, 0xee, 0xef, 0x89, 0xaa, 0xa6,
-	0x2f, 0x61, 0x6c, 0x28, 0x9a, 0xb4, 0xf9, 0x5d, 0x4a, 0xf7, 0xf6, 0xac, 0x1f, 0x32, 0x87, 0xb1,
-	0xa1, 0x18, 0x0d, 0xa7, 0x4b, 0x9d, 0xde, 0xc9, 0xbe, 0xb0, 0x9a, 0x6b, 0x0e, 0x63, 0x43, 0x28,
-	0x1a, 0x5e, 0x97, 0x00, 0x35, 0xbc, 0x4e, 0x7d, 0x09, 0x3c, 0x43, 0x1f, 0x1a, 0x5e, 0x97, 0xee,
-	0x34, 0xbc, 0x4e, 0x59, 0x91, 0xa7, 0xe0, 0xd4, 0x7a, 0x20, 0x6e, 0x93, 0xbb, 0xa3, 0x34, 0xef,
-	0x5e, 0x47, 0xc4, 0x00, 0x90, 0x0a, 0x30, 0x01, 0x74, 0xe5, 0x98, 0x00, 0x86, 0x5c, 0x96, 0x07,
-	0x72, 0x95, 0x3d, 0xfc, 0x19, 0x00, 0x00, 0xff, 0xff, 0xe5, 0xf5, 0xad, 0xad, 0x15, 0x07, 0x00,
-	0x00,
+var fileDescriptor_comment_5c868753f2e26760 = []byte{
+	// 540 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x54, 0x51, 0x8f, 0x93, 0x40,
+	0x10, 0x0e, 0xa5, 0x77, 0xa5, 0x73, 0x36, 0x5e, 0xd6, 0xaa, 0x48, 0xce, 0x3b, 0x82, 0x2f, 0x3c,
+	0xd1, 0xa4, 0xbe, 0x18, 0x63, 0x62, 0x4c, 0x8d, 0x3e, 0x68, 0x6a, 0xc2, 0x79, 0x3f, 0xa0, 0x3d,
+	0xe6, 0x08, 0xb1, 0xb0, 0xc8, 0x2e, 0x1a, 0x8d, 0xcf, 0xbe, 0xf8, 0x13, 0xfc, 0x51, 0xfe, 0x25,
+	0xb3, 0xc0, 0xc2, 0x42, 0xa1, 0x7d, 0x63, 0x76, 0xbe, 0xf9, 0x76, 0xf6, 0xfb, 0x66, 0x80, 0xab,
+	0xf4, 0x4b, 0xb8, 0xb8, 0xa5, 0x71, 0x8c, 0x09, 0x5f, 0xa4, 0x19, 0xe5, 0x54, 0x46, 0x5e, 0x11,
+	0x91, 0x49, 0x15, 0x5a, 0x57, 0x21, 0xa5, 0xe1, 0x0e, 0x4b, 0xd0, 0x36, 0xbf, 0x5b, 0xf0, 0x28,
+	0x46, 0xc6, 0x37, 0x71, 0x5a, 0x22, 0x9d, 0x3f, 0x1a, 0x3c, 0xf8, 0x18, 0x31, 0xbe, 0x2a, 0x0b,
+	0x98, 0x8f, 0x5f, 0x73, 0x64, 0x9c, 0x98, 0x30, 0x49, 0x29, 0xe3, 0x37, 0x51, 0x60, 0x6a, 0xb6,
+	0xe6, 0x4e, 0x7d, 0x19, 0x92, 0x4b, 0x80, 0x8a, 0x5d, 0x24, 0x47, 0x45, 0x52, 0x39, 0x21, 0x16,
+	0x18, 0xe9, 0x26, 0xc4, 0xeb, 0xe8, 0x27, 0x9a, 0xba, 0xad, 0xb9, 0x27, 0x7e, 0x1d, 0x8b, 0x5a,
+	0xf1, 0xbd, 0xce, 0xe3, 0x2d, 0x66, 0xe6, 0xb8, 0xc8, 0x2a, 0x27, 0xce, 0x6f, 0x0d, 0xe6, 0xed,
+	0x6e, 0x58, 0x4a, 0x13, 0x86, 0x64, 0x09, 0x46, 0x75, 0x05, 0x33, 0x35, 0x5b, 0x77, 0xcf, 0x96,
+	0x8f, 0x3c, 0xf9, 0xe4, 0xeb, 0x28, 0x09, 0x77, 0x58, 0x95, 0xf8, 0x35, 0xae, 0xd5, 0xc8, 0xe8,
+	0x60, 0x23, 0xfa, 0x5e, 0x23, 0x7f, 0x47, 0x30, 0x6b, 0xf1, 0x92, 0x73, 0xd0, 0xf3, 0x5a, 0x0c,
+	0xf1, 0x29, 0x24, 0xca, 0x19, 0x66, 0x8d, 0x0a, 0x32, 0x54, 0xc5, 0xd3, 0xdb, 0xe2, 0x11, 0x18,
+	0x6f, 0x69, 0xf0, 0xa3, 0x78, 0xfa, 0xd4, 0x2f, 0xbe, 0xc9, 0x05, 0x4c, 0xd3, 0x4d, 0x56, 0xe9,
+	0x79, 0x52, 0x24, 0x9a, 0x03, 0xf2, 0x02, 0xa6, 0xb7, 0x19, 0x6e, 0x38, 0x06, 0x6f, 0xb8, 0x79,
+	0x6a, 0x6b, 0xee, 0xd9, 0xd2, 0xf2, 0x4a, 0x57, 0x3d, 0xe9, 0xaa, 0xf7, 0x59, 0xba, 0xea, 0x37,
+	0x60, 0xf2, 0x12, 0x20, 0xa6, 0x41, 0x74, 0x17, 0x15, 0xa5, 0x93, 0xa3, 0xa5, 0x0a, 0x5a, 0xf4,
+	0x14, 0xb1, 0xb7, 0xb8, 0x43, 0x8e, 0x81, 0x69, 0xd8, 0x9a, 0x6b, 0xf8, 0xcd, 0x81, 0xf3, 0x0b,
+	0xe6, 0xab, 0xe2, 0x1a, 0x29, 0xfa, 0xd1, 0xa1, 0x91, 0xef, 0x1e, 0x0d, 0xbd, 0x5b, 0xef, 0xbe,
+	0x5b, 0x51, 0x77, 0xdc, 0x52, 0xd7, 0x79, 0x05, 0xf3, 0x9b, 0x34, 0xd8, 0xbf, 0x7d, 0xdf, 0xa1,
+	0x9e, 0x5b, 0x9d, 0xc7, 0xf0, 0xb0, 0x53, 0x5d, 0x8e, 0x98, 0xe3, 0xc2, 0xdc, 0xc7, 0x98, 0x7e,
+	0xc3, 0x15, 0x4d, 0xf8, 0x21, 0x5a, 0x41, 0xd1, 0x41, 0x36, 0x14, 0xa5, 0x44, 0xc7, 0x3a, 0x13,
+	0x14, 0x1d, 0x64, 0x45, 0xf1, 0x0c, 0xee, 0xbf, 0x47, 0xfe, 0xe9, 0x7b, 0x82, 0xd9, 0x70, 0xb5,
+	0x07, 0xe7, 0x0d, 0xa8, 0xda, 0x10, 0x0b, 0x0c, 0x2a, 0x0e, 0x1a, 0xf1, 0xeb, 0x78, 0xf9, 0x4f,
+	0x87, 0x89, 0x9c, 0xe3, 0x0f, 0x70, 0x4f, 0xdd, 0x30, 0x72, 0x51, 0xef, 0x51, 0xcf, 0x6f, 0xc0,
+	0x7a, 0x3a, 0x90, 0xad, 0x2e, 0x7d, 0x07, 0xb3, 0xd6, 0x20, 0x90, 0x06, 0xdf, 0x37, 0x20, 0xd6,
+	0xc0, 0xd2, 0x92, 0x35, 0xcc, 0x5a, 0xa6, 0x28, 0x3c, 0x7d, 0x56, 0x5b, 0x97, 0x43, 0xe9, 0xaa,
+	0xaf, 0x35, 0xcc, 0x5a, 0x0e, 0x29, 0x7c, 0x7d, 0x1e, 0x2b, 0x7c, 0xbd, 0xc6, 0x0a, 0xbe, 0x96,
+	0x5d, 0x0a, 0x5f, 0x9f, 0xe1, 0x0a, 0x5f, 0xaf, 0xcb, 0xe4, 0x35, 0x18, 0xd2, 0x40, 0x62, 0xd6,
+	0xd8, 0x8e, 0xf1, 0xd6, 0x93, 0x9e, 0x4c, 0x49, 0xb0, 0x3d, 0x2d, 0xf6, 0xf7, 0xf9, 0xff, 0x00,
+	0x00, 0x00, 0xff, 0xff, 0x4a, 0x97, 0x11, 0xc6, 0x0a, 0x06, 0x00, 0x00,
 }

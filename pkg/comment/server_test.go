@@ -68,18 +68,8 @@ func (mdb *mockdb) getOwner(uid uuid.UUID) (string, error) {
 	return nilUIDString, nil
 }
 
-type mockAuth struct{}
-
-func (ma *mockAuth) Add(appID, appSecret string) (string, error) {
-	return "valid-token", nil
-}
-
-func (ma *mockAuth) Exists(token string) (bool, error) {
-	return true, nil
-}
-
 func TestListComments(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 	var pageSize int32 = 3
 	req := &pb.ListCommentsRequest{PostUid: nilUIDString, PageSize: pageSize}
 	res, err := s.ListComments(context.Background(), req)
@@ -93,7 +83,7 @@ func TestListComments(t *testing.T) {
 }
 
 func TestCreateComment(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 	req := &pb.CreateCommentRequest{PostUid: nilUIDString, UserUid: nilUIDString}
 	_, err := s.CreateComment(context.Background(), req)
 	if err != nil {
@@ -102,7 +92,7 @@ func TestCreateComment(t *testing.T) {
 }
 
 func TestCreateCommentFail(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 
 	req := &pb.CreateCommentRequest{}
 	_, err := s.CreateComment(context.Background(), req)
@@ -112,7 +102,7 @@ func TestCreateCommentFail(t *testing.T) {
 }
 
 func TestUpdateComment(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 	req := &pb.UpdateCommentRequest{Uid: nilUIDString}
 	_, err := s.UpdateComment(context.Background(), req)
 	if err != nil {
@@ -121,7 +111,7 @@ func TestUpdateComment(t *testing.T) {
 }
 
 func TestUpdateCommentFail(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 
 	req := &pb.UpdateCommentRequest{}
 	_, err := s.UpdateComment(context.Background(), req)
@@ -131,7 +121,7 @@ func TestUpdateCommentFail(t *testing.T) {
 }
 
 func TestDeleteComment(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 	req := &pb.DeleteCommentRequest{Uid: nilUIDString}
 	_, err := s.DeleteComment(context.Background(), req)
 	if err != nil {
@@ -140,7 +130,7 @@ func TestDeleteComment(t *testing.T) {
 }
 
 func TestDeleteCOmmentFail(t *testing.T) {
-	s := &Server{&mockdb{}, &mockAuth{}}
+	s := &Server{&mockdb{}}
 
 	req := &pb.DeleteCommentRequest{}
 	_, err := s.DeleteComment(context.Background(), req)
