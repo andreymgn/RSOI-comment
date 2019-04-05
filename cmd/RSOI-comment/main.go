@@ -14,8 +14,10 @@ func main() {
 		return
 	}
 
+	jaegerAddr := os.Getenv("JAEGER-ADDR")
+
 	fmt.Printf("running comment service on port %d\n", port)
-	err = runComment(port, conn)
+	err = runComment(port, conn, jaegerAddr)
 
 	if err != nil {
 		fmt.Printf("finished with error %v", err)
