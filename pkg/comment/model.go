@@ -28,6 +28,7 @@ type Comment struct {
 
 type datastore interface {
 	getAll(uuid.UUID, uuid.UUID, int32, int32) ([]*Comment, error)
+	getOne(uuid.UUID) (*Comment, error)
 	create(uuid.UUID, string, uuid.UUID, uuid.UUID) (*Comment, error)
 	update(uuid.UUID, string) error
 	removeContent(uuid.UUID) error
@@ -95,6 +96,42 @@ func (db *db) getAll(postUID uuid.UUID, parentUID uuid.UUID, pageSize, pageNumbe
 	}
 
 	return result, nil
+}
+
+func (db *db) getOne(uid uuid.UUID) (*Comment, error) {
+	query := "SELECT user_uid, post_uid, body, parent_uid, created_at, modified_at, is_deleted FROM comments WHERE uid=$1"
+	row := db.QueryRow(query, uid.String())
+	result := new(Comment)
+	var stringUserUID, stringPostUID, stringParentUID string
+	switch err := row.Scan(&stringUserUID, &stringPostUID, &result.Body, &stringParentUID, &result.CreatedAt, &result.ModifiedAt, &result.IsDeleted); err {
+	case nil:
+		result.UID = uid
+		userUID, err := uuid.Parse(stringUserUID)
+		if err != nil {
+			return nil, err
+		}
+
+		result.UserUID = userUID
+
+		postUID, err := uuid.Parse(stringPostUID)
+		if err != nil {
+			return nil, err
+		}
+
+		result.PostUID = postUID
+
+		parentUID, err := uuid.Parse(stringParentUID)
+		if err != nil {
+			return nil, err
+		}
+
+		result.ParentUID = parentUID
+		return result, nil
+	case sql.ErrNoRows:
+		return nil, errNotFound
+	default:
+		return nil, err
+	}
 }
 
 func (db *db) create(postUID uuid.UUID, body string, parentUID, userUID uuid.UUID) (*Comment, error) {

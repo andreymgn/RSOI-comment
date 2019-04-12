@@ -6,6 +6,7 @@ package comment;
 
 service Comment {
     rpc ListComments(ListCommentsRequest) returns (ListCommentsResponse);
+    rpc GetComment(GetCommentRequest) returns (SingleComment);
     rpc CreateComment(CreateCommentRequest) returns (SingleComment);
     rpc UpdateComment(UpdateCommentRequest) returns (UpdateCommentResponse);
     rpc RemoveContent(RemoveContentRequest) returns (RemoveContentResponse);
@@ -35,6 +36,10 @@ message SingleComment {
     google.protobuf.Timestamp createdAt = 6;
     google.protobuf.Timestamp modifiedAt = 7;
     bool isDeleted = 8;
+}
+
+message GetCommentRequest {
+    string uid = 1;
 }
 
 message CreateCommentRequest {

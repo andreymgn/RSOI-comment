@@ -31,6 +31,16 @@ func (mdb *mockdb) getAll(postUID uuid.UUID, parentUID uuid.UUID, pageNumber, pa
 	return result, nil
 }
 
+func (mdb *mockdb) getOne(uid uuid.UUID) (*Comment, error) {
+	if uid == uuid.Nil {
+		uid := uuid.New()
+
+		return &Comment{uid, uid, uid, "first comment body", uuid.Nil, time.Now(), time.Now(), false}, nil
+	}
+
+	return nil, errDummy
+}
+
 func (mdb *mockdb) create(postUID uuid.UUID, body string, parentUID, userUID uuid.UUID) (*Comment, error) {
 	if postUID == uuid.Nil {
 		uid := uuid.New()
@@ -79,6 +89,24 @@ func TestListComments(t *testing.T) {
 
 	if len(res.Comments) != int(pageSize) {
 		t.Errorf("unexpected number of comments: got %v want %v", len(res.Comments), pageSize)
+	}
+}
+
+func TestGetComment(t *testing.T) {
+	s := &Server{&mockdb{}}
+	req := &pb.GetCommentRequest{Uid: nilUIDString}
+	_, err := s.GetComment(context.Background(), req)
+	if err != nil {
+		t.Errorf("unexpected error %v", err)
+	}
+}
+
+func TestGetCommentFail(t *testing.T) {
+	s := &Server{&mockdb{}}
+	req := &pb.GetCommentRequest{Uid: ""}
+	_, err := s.GetComment(context.Background(), req)
+	if err == nil {
+		t.Errorf("expected error, got nothing")
 	}
 }
 

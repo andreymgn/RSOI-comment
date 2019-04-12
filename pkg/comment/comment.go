@@ -88,6 +88,24 @@ func (s *Server) ListComments(ctx context.Context, req *pb.ListCommentsRequest) 
 	return res, nil
 }
 
+// GetPost returns single post by ID
+func (s *Server) GetComment(ctx context.Context, req *pb.GetCommentRequest) (*pb.SingleComment, error) {
+	uid, err := uuid.Parse(req.Uid)
+	if err != nil {
+		return nil, statusInvalidUUID
+	}
+
+	comment, err := s.db.getOne(uid)
+	switch err {
+	case nil:
+		return comment.SingleComment()
+	case errNotFound:
+		return nil, statusNotFound
+	default:
+		return nil, internalError(err)
+	}
+}
+
 // CreateComment creates a new comment
 func (s *Server) CreateComment(ctx context.Context, req *pb.CreateCommentRequest) (*pb.SingleComment, error) {
 	postUID, err := uuid.Parse(req.PostUid)
