@@ -7,10 +7,11 @@ import (
 
 func runComment(port int, connString, jaegerAddr string) error {
 	tracer, closer, err := tracer.NewTracer("comment", jaegerAddr)
-	defer closer.Close()
 	if err != nil {
 		return err
 	}
+
+	defer closer.Close()
 
 	server, err := comment.NewServer(connString)
 	if err != nil {
