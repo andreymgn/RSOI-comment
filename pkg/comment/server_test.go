@@ -157,7 +157,7 @@ func TestDeleteComment(t *testing.T) {
 	}
 }
 
-func TestDeleteCOmmentFail(t *testing.T) {
+func TestDeleteCommentFail(t *testing.T) {
 	s := &Server{&mockdb{}}
 
 	req := &pb.DeleteCommentRequest{}

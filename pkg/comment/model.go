@@ -151,6 +151,10 @@ func (db *db) create(postUID uuid.UUID, body string, parentUID, userUID uuid.UUI
 	comment.ModifiedAt = now
 
 	result, err := db.Exec(query, uid.String(), userUID.String(), postUID.String(), body, parentUID.String(), now, now)
+	if err != nil {
+		return nil, err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return nil, err
@@ -166,6 +170,10 @@ func (db *db) create(postUID uuid.UUID, body string, parentUID, userUID uuid.UUI
 func (db *db) update(uid uuid.UUID, body string) error {
 	query := "UPDATE comments SET body=$1, modified_at=$2 WHERE uid=$3 AND is_deleted=false"
 	result, err := db.Exec(query, body, time.Now(), uid.String())
+	if err != nil {
+		return err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return err
@@ -181,6 +189,10 @@ func (db *db) update(uid uuid.UUID, body string) error {
 func (db *db) removeContent(uid uuid.UUID) error {
 	query := "UPDATE comments SET is_deleted=true, modified_at=$1 WHERE uid=$2 AND is_deleted=false"
 	result, err := db.Exec(query, time.Now(), uid.String())
+	if err != nil {
+		return err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return err
@@ -196,6 +208,10 @@ func (db *db) removeContent(uid uuid.UUID) error {
 func (db *db) delete(uid uuid.UUID) error {
 	query := "DELETE FROM comments WHERE uid=$1"
 	result, err := db.Exec(query, uid.String())
+	if err != nil {
+		return err
+	}
+
 	nRows, err := result.RowsAffected()
 	if err != nil {
 		return err
